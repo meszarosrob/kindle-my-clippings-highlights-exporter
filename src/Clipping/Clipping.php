@@ -7,7 +7,7 @@ namespace KindleMyClippingsHighlightsExporter\Clipping;
 class Clipping
 {
     public function __construct(
-        public readonly string $content
+        public readonly string $content,
     ) {
     }
 }

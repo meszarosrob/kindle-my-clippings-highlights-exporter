@@ -13,7 +13,7 @@ class WriteToFile
 
     public function __construct(
         string $directoryPath,
-        string $fileExtension
+        string $fileExtension,
     ) {
         $this->fileExtension = ltrim($fileExtension, '.');
         $this->directoryPath = rtrim($directoryPath, '/');

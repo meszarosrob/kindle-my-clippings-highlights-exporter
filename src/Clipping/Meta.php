@@ -18,7 +18,7 @@ class Meta
         public readonly string $second,
         public readonly string $dayPeriod,
         public readonly string $content,
-        public readonly Type $type
+        public readonly Type $type,
     ) {
     }
 }

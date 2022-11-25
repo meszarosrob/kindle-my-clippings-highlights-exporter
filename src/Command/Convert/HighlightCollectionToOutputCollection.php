@@ -10,7 +10,7 @@ use KindleMyClippingsHighlightsExporter\Output;
 class HighlightCollectionToOutputCollection
 {
     public function __construct(
-        private readonly HighlightToOutput $highlightToOutput
+        private readonly HighlightToOutput $highlightToOutput,
     ) {
     }
 

@@ -7,7 +7,7 @@ namespace KindleMyClippingsHighlightsExporter\Highlight;
 class Content
 {
     public function __construct(
-        public readonly string $content
+        public readonly string $content,
     ) {
     }
 }

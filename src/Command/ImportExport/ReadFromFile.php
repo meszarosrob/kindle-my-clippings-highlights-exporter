@@ -7,7 +7,7 @@ namespace KindleMyClippingsHighlightsExporter\Command\ImportExport;
 class ReadFromFile
 {
     public function __construct(
-        private readonly string $filePath
+        private readonly string $filePath,
     ) {
     }
 
