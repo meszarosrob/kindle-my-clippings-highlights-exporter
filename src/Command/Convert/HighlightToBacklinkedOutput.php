@@ -19,7 +19,11 @@ class HighlightToBacklinkedOutput implements HighlightToOutput
 
     public function name(Highlight\Highlight $highlight): string
     {
-        return md5(serialize($highlight));
+        return sprintf(
+            '%s... %s',
+            $this->trimContent($highlight->content),
+            substr((string)$highlight->dateTime->getTimestamp(), -4)
+        );
     }
 
     public function content(Highlight\Highlight $highlight): string
@@ -39,5 +43,21 @@ class HighlightToBacklinkedOutput implements HighlightToOutput
                 ':content' => $highlight->content->content,
             ]
         );
+    }
+
+    private function trimContent(Highlight\Content $content): string
+    {
+        $minCharLength = 40;
+        $maxLength = mb_strpos(
+            $content->content,
+            ' ',
+            min($minCharLength, mb_strlen($content->content))
+        );
+
+        if ($maxLength === false) {
+            $maxLength = $minCharLength;
+        }
+
+        return mb_substr($content->content, 0, $maxLength);
     }
 }
