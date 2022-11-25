@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace KindleMyClippingsHighlightsExporter\Command\Convert;
 
 use KindleMyClippingsHighlightsExporter\Clipping;
+use KindleMyClippingsHighlightsExporter\Utility;
 
 class EnglishClippingToMeta implements ClippingToMeta
 {
@@ -17,7 +18,9 @@ class EnglishClippingToMeta implements ClippingToMeta
         );
 
         $parts = array_map(
-            fn($value) => trim($value[0]),
+            fn($value) => trim(
+                Utility\Bom::remove($value[0] ?? '')
+            ),
             array_filter(
                 $matches,
                 fn($value, $key) => !is_numeric($key),
