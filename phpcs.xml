@@ -1,0 +1,14 @@
+<ruleset>
+    <file>.</file>
+
+    <arg value="sp"/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+
+    <rule ref="PSR12"/>
+    <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma"/>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInDeclaration"/>
+    <rule ref="SlevomatCodingStandard.Functions.StrictCall"/>
+
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+</ruleset>
