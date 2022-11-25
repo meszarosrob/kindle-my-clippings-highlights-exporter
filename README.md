@@ -55,9 +55,8 @@ docker compose run app php index.php
 ## Customization (dev)
 
 ```php
-new Command\Convert\SourceToOutputCollectionFacade(
+new Command\Convert\MyClippingsToOutputCollectionFacade(
     new Command\Convert\EnglishClippingToMeta(), // <- your language-aware parser-converter
-    fn(Clipping\Meta $meta) => $meta->type === 'Highlight'
     new Command\Convert\HighlightToBacklinkedOutput(), // <- your desired output-formatter
 );
 ```

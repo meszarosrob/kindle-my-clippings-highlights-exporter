@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace KindleMyClippingsHighlightsExporter\Command\Convert;
 
-use Closure;
 use KindleMyClippingsHighlightsExporter\Output;
 use KindleMyClippingsHighlightsExporter\MyClippings;
 
@@ -15,7 +14,6 @@ class MyClippingsToOutputCollectionFacade
 {
     public function __construct(
         private readonly ClippingToMeta $clippingToMeta,
-        private readonly Closure $metaFilter,
         private readonly HighlightToOutput $highlightToOutput,
     ) {
     }
@@ -27,8 +25,7 @@ class MyClippingsToOutputCollectionFacade
             new EntryCollectionToClippingCollection(),
             new ClippingCollectionToHighlightCollection(
                 $this->clippingToMeta,
-                new MetaToHighlight(),
-                $this->metaFilter
+                new MetaToHighlight()
             ),
             new HighlightCollectionToOutputCollection(
                 $this->highlightToOutput

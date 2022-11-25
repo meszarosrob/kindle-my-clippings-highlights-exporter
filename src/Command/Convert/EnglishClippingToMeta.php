@@ -28,7 +28,6 @@ class EnglishClippingToMeta implements ClippingToMeta
         return new Clipping\Meta(
             $parts['publicationTitle'],
             $parts['publicationAuthor'],
-            $parts['type'],
             $parts['location'],
             $parts['year'],
             $parts['month'],
@@ -38,6 +37,10 @@ class EnglishClippingToMeta implements ClippingToMeta
             $parts['second'],
             $parts['dayPeriod'],
             $parts['content'],
+            match ($parts['type']) {
+                'Highlight' => Clipping\Type::Highlight,
+                default => Clipping\Type::Other
+            }
         );
     }
 
