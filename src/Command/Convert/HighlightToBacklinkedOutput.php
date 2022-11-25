@@ -27,8 +27,8 @@ class HighlightToBacklinkedOutput implements HighlightToOutput
         $template = <<<CONTENT
         > :content
         
-        [:title]
-        [:author]
+        [[:title]]
+        [[:author]]
         CONTENT;
 
         return strtr(
